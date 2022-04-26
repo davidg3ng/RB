@@ -1,3 +1,6 @@
+#ifndef EVENTS_H_INCLUDED
+#define EVENTS_H_INCLUDED
+
 #include "nnxt.h"
 #define TimerCount 16
 
@@ -73,13 +76,6 @@ void timerTask(){
     }
 }
 
-
-int main(){
-    CreateAndStartTask(timerTask);
-    StartScheduler();
-   	return 0;
-}
-
 void setTimer(TimerType t, int time, EventType timerEvent){
     for(int i = 0; i < TimerCount; i++){
         if(timers[i].timerActive == 0){
@@ -143,3 +139,7 @@ uint16_t setBit(uint8_t value, uint16_t var, EventType ev){
 uint8_t getBit(uint16_t var, char index){
     return ((var >> index) & 1);
 }
+
+
+
+#endif /* EVENTS_H_INCLUDED */
